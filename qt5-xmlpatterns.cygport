@@ -1,0 +1,44 @@
+inherit qt5-qmake
+
+NAME="qt5-xmlpatterns"
+VERSION=5.1.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Qt C++ application framework (XmlPatterns library)"
+DESCRIPTION="Qt is a cross-platform application framework for desktop and
+embedded development. Qt enables programmers to create advanced GUI
+applications once and deploy them to Windows, Mac OS X and Linux without
+rewriting the source code. Companies using Qt can leverage software
+investments made on one platform across many others."
+HOMEPAGE="http://qt-project.org/"
+SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtxmlpatterns-opensource-src-${VERSION}.tar.xz"
+SRC_DIR="qtxmlpatterns-opensource-src-${VERSION}"
+
+PKG_NAMES="libQt5XmlPatterns5 libQt5XmlPatterns-devel ${NAME}-examples"
+libQt5XmlPatterns5_CONTENTS="usr/bin/cygQt5XmlPatterns-5.dll"
+libQt5XmlPatterns_devel_CONTENTS="
+	usr/bin/xmlpatterns-qt5
+	usr/bin/xmlpatternsvalidator-qt5
+	usr/include/qt5/QtXmlPatterns/
+	usr/lib/cmake/Qt5XmlPatterns/
+	usr/lib/libQt5XmlPatterns.*
+	usr/lib/pkgconfig/Qt5XmlPatterns.pc
+	usr/lib/qt5/bin/xmlpatterns.exe
+	usr/lib/qt5/bin/xmlpatternsvalidator.exe
+	usr/lib/qt5/mkspecs/modules/qt_lib_xmlpatterns.pri
+"
+qt5_xmlpatterns_examples_CONTENTS="usr/lib/qt5/examples/xmlpatterns/"
+
+src_install() {
+	local x
+
+	cd ${B}
+	qt5_qmake_install
+
+	rm ${D}/usr/lib/*.la
+
+	for x in xmlpatterns xmlpatternsvalidator
+	do
+		dosym ../lib/qt5/bin/${x}.exe /usr/bin/${x}-qt5
+	done
+}
