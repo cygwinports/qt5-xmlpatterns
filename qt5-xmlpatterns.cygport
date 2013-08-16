@@ -14,7 +14,7 @@ HOMEPAGE="http://qt-project.org/"
 SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtxmlpatterns-opensource-src-${VERSION}.tar.xz"
 SRC_DIR="qtxmlpatterns-opensource-src-${VERSION}"
 
-PKG_NAMES="libQt5XmlPatterns5 libQt5XmlPatterns-devel ${NAME}-examples"
+PKG_NAMES="libQt5XmlPatterns5 libQt5XmlPatterns-devel ${NAME}-doc ${NAME}-examples"
 libQt5XmlPatterns5_CONTENTS="usr/bin/cygQt5XmlPatterns-5.dll"
 libQt5XmlPatterns_devel_CONTENTS="
 	usr/bin/xmlpatterns-qt5
@@ -27,15 +27,23 @@ libQt5XmlPatterns_devel_CONTENTS="
 	usr/lib/qt5/bin/xmlpatternsvalidator.exe
 	usr/lib/qt5/mkspecs/modules/qt_lib_xmlpatterns.pri
 "
+qt5_xmlpatterns_doc_CATEGORY="Doc"
+qt5_xmlpatterns_doc_CONTENTS="usr/share/qt5/doc/qtxmlpatterns*"
+qt5_xmlpatterns_examples_CATEGORY="X11"
 qt5_xmlpatterns_examples_CONTENTS="usr/lib/qt5/examples/xmlpatterns/"
+
+src_compile() {
+	cd ${B}
+	cygqmake5 ${S}
+	cygmake
+	cygmake docs
+}
 
 src_install() {
 	local x
 
 	cd ${B}
-	qt5_qmake_install
-
-	rm ${D}/usr/lib/*.la
+	qt5_qmake_install install_docs
 
 	for x in xmlpatterns xmlpatternsvalidator
 	do
