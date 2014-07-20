@@ -1,7 +1,7 @@
 inherit qt5-qmake
 
 NAME="qt5-xmlpatterns"
-VERSION=5.1.0
+VERSION=5.2.1
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Qt C++ application framework (XmlPatterns library)"
@@ -15,7 +15,7 @@ SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VER
 SRC_DIR="qtxmlpatterns-opensource-src-${VERSION}"
 
 PKG_NAMES="libQt5XmlPatterns5 libQt5XmlPatterns-devel ${NAME}-doc ${NAME}-examples"
-libQt5XmlPatterns5_CONTENTS="usr/bin/cygQt5XmlPatterns-5.dll"
+libQt5XmlPatterns5_CONTENTS="usr/bin/cygQt5XmlPatterns-5.dll usr/share/doc/"
 libQt5XmlPatterns_devel_CONTENTS="
 	usr/bin/xmlpatterns-qt5
 	usr/bin/xmlpatternsvalidator-qt5
@@ -26,6 +26,7 @@ libQt5XmlPatterns_devel_CONTENTS="
 	usr/lib/qt5/bin/xmlpatterns.exe
 	usr/lib/qt5/bin/xmlpatternsvalidator.exe
 	usr/lib/qt5/mkspecs/modules/qt_lib_xmlpatterns.pri
+	usr/lib/qt5/mkspecs/modules/qt_lib_xmlpatterns_private.pri
 "
 qt5_xmlpatterns_doc_CATEGORY="Doc"
 qt5_xmlpatterns_doc_CONTENTS="usr/share/qt5/doc/qtxmlpatterns*"
