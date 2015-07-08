@@ -1,8 +1,8 @@
 inherit qt5-qmake
 
 NAME="qt5-xmlpatterns"
-VERSION=5.4.1
-RELEASE=2
+VERSION=5.4.2
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Qt C++ application framework (XmlPatterns library)"
 DESCRIPTION="Qt is a cross-platform application framework for desktop and
