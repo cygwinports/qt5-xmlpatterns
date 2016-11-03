@@ -1,7 +1,7 @@
 inherit qt5-qmake
 
 NAME="qt5-xmlpatterns"
-VERSION=5.5.1
+VERSION=5.6.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Qt C++ application framework (XmlPatterns library)"
@@ -10,8 +10,8 @@ embedded development. Qt enables programmers to create advanced GUI
 applications once and deploy them to Windows, Mac OS X and Linux without
 rewriting the source code. Companies using Qt can leverage software
 investments made on one platform across many others."
-HOMEPAGE="http://qt-project.org/"
-SRC_URI="http://download.qt-project.org/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtxmlpatterns-opensource-src-${VERSION}.tar.xz"
+HOMEPAGE="https://www.qt.io/"
+SRC_URI="http://download.qt.io/official_releases/qt/${VERSION%.*}/${VERSION}/submodules/qtxmlpatterns-opensource-src-${VERSION}.tar.xz"
 SRC_DIR="qtxmlpatterns-opensource-src-${VERSION}"
 
 PKG_NAMES="libQt5XmlPatterns5 libQt5XmlPatterns-devel ${NAME}-doc ${NAME}-examples"
