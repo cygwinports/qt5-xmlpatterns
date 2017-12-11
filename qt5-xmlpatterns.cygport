@@ -1,7 +1,7 @@
 inherit qt5-qmake
 
 NAME="qt5-xmlpatterns"
-VERSION=5.9.2
+VERSION=5.9.3
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Qt C++ application framework (XmlPatterns library)"
